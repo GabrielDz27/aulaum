@@ -11,7 +11,7 @@ public class OlaMundo extends JFrame {
      */
     
     private static JLabel directionsLabel = new JLabel("Coloca o seu nome na caixa");
-    private static JLabel outputLabel = new JLabel( );
+    private static JLabel outputLabel = new JLabel("                           ");
     private static JTextField nameBox = new JTextField(25);
     private static JButton nameButton = new JButton("Me aperta");
 
@@ -23,13 +23,13 @@ public class OlaMundo extends JFrame {
         window.setTitle("Meu primeiro JFrame");
         //configuracao da janela como eu quero
 
-        window.setLayout(new FlowLayout());
+        window.setLayout(new GridLayout(3,2));
         window.getContentPane().add(directionsLabel);
         window.getContentPane().add(nameBox);
         window.getContentPane().add(nameButton);
         window.getContentPane().add(outputLabel);
 
-        //window.pack();
+        //  window.pack();
         nameButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 buttonClick(e);
@@ -38,9 +38,14 @@ public class OlaMundo extends JFrame {
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void buttonClick (ActionEvent e){
-        JOptionPane.showMessageDialog(directionsLabel, "ola", "Ola mundo", JOptionPane.INFORMATION_MESSAGE);
-    }
     
+    public static void buttonClick (ActionEvent e){
+    
+     //   JOptionPane.showMessageDialog(directionsLabel, "ola", "Ola mundo", JOptionPane.INFORMATION_MESSAGE);
+        String yourname = nameBox.getText();
+        String outputMessage = " Ola " + yourname;
+        outputLabel.setText(outputMessage);
+    
+    }
 
 }
